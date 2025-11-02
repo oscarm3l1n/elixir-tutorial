@@ -18,6 +18,11 @@ defmodule OmblogWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/posts", OMPostLive.Index, :index
+    live "/posts/new", OMPostLive.Form, :new
+    live "/posts/:id", OMPostLive.Show, :show
+    live "/posts/:id/edit", OMPostLive.Form, :edit
+
   end
 
   # Other scopes may use custom stacks.
